@@ -106,7 +106,7 @@ def train_net(net_id, net, train_dataloader, test_dataloader, epochs, lr, optimi
         optimizer = optim.SGD(filter(lambda p: p.requires_grad, net.parameters()), lr=lr, momentum=0.9,
                               weight_decay=reg)
     criterion = nn.CrossEntropyLoss().cuda()
-    criterion_deco=DecorrelateLossClass().cuda()
+    criterion_deco=MR_loss().cuda()
     cnt = 0
 
     for epoch in range(epochs):
